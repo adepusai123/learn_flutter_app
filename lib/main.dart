@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_app/question.dart';
+import './answer.dart';
+import './question.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,23 +25,34 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      "What's your favorite Color?",
-      "What's your favorite animal?"
+      {
+        "questionText": "What's your favorite color?",
+        "answers": ["White", "Red", "Black"]
+      },
+      {
+        "questionText": "What's your favorite animal?",
+        "answers": ["Dog", "Cat", "Lion"]
+      },
+      {
+        "questionText": "What's your favorite anime?",
+        "answers": ["Naruto", "Boruto", "DragonBall Z"]
+      }
     ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
               title: Text('My First App'),
-              backgroundColor: Colors.greenAccent,
+              backgroundColor: Colors.blueGrey,
             ),
             // we can use Row also if we want
             body: Column(
               children: <Widget>[
-                Question(questions[_questionIndex]),
+                Question(questions[_questionIndex]['questionText']),
                 // passing pointer instead function to onPressed
-                RaisedButton(child: Text("Ans 1"), onPressed: _answerQuestion),
-                RaisedButton(child: Text("Ans 2"), onPressed: _answerQuestion),
-                RaisedButton(child: Text("Ans 3"), onPressed: _answerQuestion),
+                ...(questions[_questionIndex]['answers'] as List<String>)
+                    .map((answer) {
+                  return Answer(_answerQuestion, answer);
+                }).toList(),
                 RaisedButton(
                     child: Text("Clear State"),
                     onPressed: () {
