@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      "What's your favorite Color?",
+      "What's your favorite animal?"
+    ];
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
             // we can use Row also if we want
             body: Column(
               children: <Widget>[
-                Text('The Question is !'),
+                Text(questions.elementAt(0)),
                 // passing pointer instead function to onPressed
                 RaisedButton(
                   child: Text("Ans 1"),
