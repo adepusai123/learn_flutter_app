@@ -6,6 +6,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  void answerQuestion() {
+    print('Answer Chosen!');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,9 +22,10 @@ class MyApp extends StatelessWidget {
             body: Column(
               children: <Widget>[
                 Text('The Question is !'),
-                RaisedButton(child: Text("Ans 1"), onPressed: null),
-                RaisedButton(child: Text("Ans 2"), onPressed: null),
-                RaisedButton(child: Text("Ans 3"), onPressed: null),
+                // passing pointer instead function to onPressed
+                RaisedButton(child: Text("Ans 1"), onPressed: answerQuestion),
+                RaisedButton(child: Text("Ans 2"), onPressed: answerQuestion),
+                RaisedButton(child: Text("Ans 3"), onPressed: answerQuestion),
               ],
             )));
   }
