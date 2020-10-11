@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_app/question.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,15 +9,15 @@ class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  void answerQuestion() {
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
   }
 
@@ -35,14 +36,18 @@ class MyAppState extends State<MyApp> {
             // we can use Row also if we want
             body: Column(
               children: <Widget>[
-                Text(questions[questionIndex]),
+                Question(questions[_questionIndex]),
                 // passing pointer instead function to onPressed
+                RaisedButton(child: Text("Ans 1"), onPressed: _answerQuestion),
+                RaisedButton(child: Text("Ans 2"), onPressed: _answerQuestion),
+                RaisedButton(child: Text("Ans 3"), onPressed: _answerQuestion),
                 RaisedButton(
-                  child: Text("Ans 1"),
-                  onPressed: () => print("One line print"),
-                ),
-                RaisedButton(child: Text("Ans 2"), onPressed: answerQuestion),
-                RaisedButton(child: Text("Ans 3"), onPressed: answerQuestion),
+                    child: Text("Clear State"),
+                    onPressed: () {
+                      setState(() {
+                        _questionIndex = 0;
+                      });
+                    }),
               ],
             )));
   }
