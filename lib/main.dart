@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         title: Text('My First App'),
         backgroundColor: Colors.greenAccent,
       ),
+      body: Text("Hello World !"),
     ));
   }
 }
