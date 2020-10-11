@@ -6,8 +6,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  var questionIndex = 0;
   void answerQuestion() {
-    print('Answer Chosen!');
+    questionIndex += 1;
   }
 
   @override
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
             // we can use Row also if we want
             body: Column(
               children: <Widget>[
-                Text(questions.elementAt(0)),
+                Text(questions[questionIndex]),
                 // passing pointer instead function to onPressed
                 RaisedButton(
                   child: Text("Ans 1"),
