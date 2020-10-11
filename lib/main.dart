@@ -23,7 +23,10 @@ class MyApp extends StatelessWidget {
               children: <Widget>[
                 Text('The Question is !'),
                 // passing pointer instead function to onPressed
-                RaisedButton(child: Text("Ans 1"), onPressed: answerQuestion),
+                RaisedButton(
+                  child: Text("Ans 1"),
+                  onPressed: () => print("One line print"),
+                ),
                 RaisedButton(child: Text("Ans 2"), onPressed: answerQuestion),
                 RaisedButton(child: Text("Ans 3"), onPressed: answerQuestion),
               ],
