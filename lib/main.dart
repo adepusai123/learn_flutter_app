@@ -4,11 +4,20 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
   var questionIndex = 0;
   void answerQuestion() {
-    questionIndex += 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
   }
 
   @override
