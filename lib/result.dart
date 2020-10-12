@@ -33,7 +33,7 @@ class Result extends StatelessWidget {
                 color: Colors.green,
                 fontSize: 36,
                 fontWeight: FontWeight.bold)),
-        RaisedButton(child: Text("Go To Question"), onPressed: press)
+        FlatButton(child: Text("Restart Quiz"), onPressed: press)
       ],
     ));
   }
