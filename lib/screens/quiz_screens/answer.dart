@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_app/components/rounded_button.dart';
 
 class Answer extends StatelessWidget {
   final Function press;
@@ -9,11 +10,11 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(10),
-      child: RaisedButton(
-        color: Colors.blueGrey,
-        textColor: Colors.white,
-        child: Text(text),
-        onPressed: press,
+      child: RoundButton(
+        color: Colors.amberAccent,
+        textColor: Colors.black,
+        btnLabel: text,
+        press: press,
       ),
     );
   }
