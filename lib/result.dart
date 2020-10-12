@@ -24,7 +24,10 @@ class Result extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(resultPhrase,
-            style: TextStyle(color: Colors.redAccent, fontSize: 24)),
+            style: TextStyle(
+                color: Colors.blueGrey,
+                fontSize: 24,
+                fontWeight: FontWeight.bold)),
         Text('$score',
             style: TextStyle(
                 color: Colors.green,
