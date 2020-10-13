@@ -13,6 +13,7 @@ class _FormScreenState extends State<FormScreen> {
   String _email;
   String _password;
   String _phone;
+  Map _formData;
   bool _autoValidate = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -117,13 +118,21 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   void _validateInputs() {
-    print('Name: $_name  Email: $_email PAssword: $_password phone: $_phone');
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+      setState(() {
+        _formData = {
+          "name": _name,
+          "email": _email,
+          "password": _password,
+          "Contact": _phone
+        };
+      });
     } else {
       setState(() {
         _autoValidate = true;
       });
     }
+    print('Form Data $_formData');
   }
 }
