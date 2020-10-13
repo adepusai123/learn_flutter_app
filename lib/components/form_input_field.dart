@@ -4,12 +4,14 @@ class FormInputField extends StatelessWidget {
   final String label;
   final Function validaror;
   final Function onSaved;
+  final TextInputType keyBoardType;
 
   const FormInputField({
     Key key,
     this.label,
     this.validaror,
     this.onSaved,
+    this.keyBoardType = TextInputType.text,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class FormInputField extends StatelessWidget {
       //     color: Colors.orangeAccent, borderRadius: BorderRadius.circular(29)),
       child: TextFormField(
         decoration: InputDecoration(labelText: label),
-        keyboardType: TextInputType.name,
+        keyboardType: keyBoardType,
         validator: validaror,
         onSaved: onSaved,
       ),

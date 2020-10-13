@@ -14,7 +14,6 @@ class _FormScreenState extends State<FormScreen> {
   String _password;
   String _phone;
   bool _autoValidate = false;
-  bool _showPassword = true;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -36,6 +35,7 @@ class _FormScreenState extends State<FormScreen> {
               _buildName(),
               _buildEmail(),
               _buildPassword(),
+              _buildPhone(),
               SizedBox(height: size.height * 0.02),
               RoundButton(
                 btnLabel: "SUBMIT",
@@ -52,6 +52,7 @@ class _FormScreenState extends State<FormScreen> {
   Widget _buildName() {
     return FormInputField(
       label: "Name",
+      keyBoardType: TextInputType.name,
       validaror: (String val) {
         if (val.isEmpty) {
           return 'Name is required';
@@ -67,6 +68,7 @@ class _FormScreenState extends State<FormScreen> {
   Widget _buildEmail() {
     return FormInputField(
       label: "Email",
+      keyBoardType: TextInputType.emailAddress,
       validaror: (String val) {
         final expr =
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
@@ -98,8 +100,24 @@ class _FormScreenState extends State<FormScreen> {
     );
   }
 
+  Widget _buildPhone() {
+    return FormInputField(
+      label: "Contact",
+      keyBoardType: TextInputType.phone,
+      validaror: (String val) {
+        if (val.isEmpty) {
+          return 'Contact is required';
+        }
+        return null;
+      },
+      onSaved: (String val) {
+        _phone = val;
+      },
+    );
+  }
+
   void _validateInputs() {
-    print('Name: $_name  Email: $_email');
+    print('Name: $_name  Email: $_email PAssword: $_password phone: $_phone');
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
     } else {
