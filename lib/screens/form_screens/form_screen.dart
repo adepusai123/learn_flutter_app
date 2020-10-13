@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter_app/components/form_input_field.dart';
 import 'package:learn_flutter_app/components/form_password_field.dart';
 import 'package:learn_flutter_app/components/rounded_button.dart';
+import 'package:learn_flutter_app/screens/form_screens/form_value_screen.dart';
 
 class FormScreen extends StatefulWidget {
   @override
@@ -128,6 +129,14 @@ class _FormScreenState extends State<FormScreen> {
           "Contact": _phone
         };
       });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return FormValueScreen(_formData);
+          },
+        ),
+      );
     } else {
       setState(() {
         _autoValidate = true;
