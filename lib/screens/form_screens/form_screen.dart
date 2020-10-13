@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_app/components/form_input_field.dart';
+import 'package:learn_flutter_app/components/form_password_field.dart';
 import 'package:learn_flutter_app/components/rounded_button.dart';
 
 class FormScreen extends StatefulWidget {
@@ -12,6 +14,7 @@ class _FormScreenState extends State<FormScreen> {
   String _password;
   String _phone;
   bool _autoValidate = false;
+  bool _showPassword = true;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -31,6 +34,8 @@ class _FormScreenState extends State<FormScreen> {
           child: Column(
             children: <Widget>[
               _buildName(),
+              _buildEmail(),
+              _buildPassword(),
               SizedBox(height: size.height * 0.02),
               RoundButton(
                 btnLabel: "SUBMIT",
@@ -45,25 +50,56 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   Widget _buildName() {
-    return Container(
-      child: TextFormField(
-        decoration: InputDecoration(labelText: "Name"),
-        keyboardType: TextInputType.name,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Name is Required';
-          }
-          return null;
-        },
-        onSaved: (String value) {
-          _name = value;
-        },
-      ),
+    return FormInputField(
+      label: "Name",
+      validaror: (String val) {
+        if (val.isEmpty) {
+          return 'Name is required';
+        }
+        return null;
+      },
+      onSaved: (String val) {
+        _name = val;
+      },
+    );
+  }
+
+  Widget _buildEmail() {
+    return FormInputField(
+      label: "Email",
+      validaror: (String val) {
+        final expr =
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
+        if (val.isEmpty) {
+          return "Email is required";
+        }
+        if (!RegExp(expr).hasMatch(val)) {
+          return "Enter valid email.";
+        }
+        return null;
+      },
+      onSaved: (String val) {
+        _email = val;
+      },
+    );
+  }
+
+  Widget _buildPassword() {
+    return FormPasswordField(
+      validator: (String password) {
+        if (password.isEmpty) {
+          return "Password is required";
+        }
+        return null;
+      },
+      onSaved: (String password) {
+        _password = password;
+      },
     );
   }
 
   void _validateInputs() {
-    print(_name);
+    print('Name: $_name  Email: $_email');
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
     } else {
