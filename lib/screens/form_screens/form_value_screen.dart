@@ -12,54 +12,56 @@ class FormValueScreen extends StatelessWidget {
         title: Text("Form Data"),
         backgroundColor: Colors.deepOrange,
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                ReadOnlyData(
-                  label: formData.keys.elementAt(0),
-                ),
-                ReadOnlyData(
-                  color: Colors.black,
-                  label: formData.values.elementAt(0),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                ReadOnlyData(
-                  label: formData.keys.elementAt(1),
-                ),
-                ReadOnlyData(
-                  color: Colors.black,
-                  label: formData.values.elementAt(1),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                ReadOnlyData(
-                  label: formData.keys.elementAt(2),
-                ),
-                ReadOnlyData(
-                  color: Colors.black,
-                  label: formData.values.elementAt(2),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                ReadOnlyData(
-                  label: formData.keys.elementAt(3),
-                ),
-                ReadOnlyData(
-                  color: Colors.black,
-                  label: formData.values.elementAt(3),
-                ),
-              ],
-            )
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  ReadOnlyData(
+                    label: formData.keys.elementAt(0),
+                  ),
+                  ReadOnlyData(
+                    color: Colors.black,
+                    label: formData.values.elementAt(0),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  ReadOnlyData(
+                    label: formData.keys.elementAt(1),
+                  ),
+                  ReadOnlyData(
+                    color: Colors.black,
+                    label: formData.values.elementAt(1),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  ReadOnlyData(
+                    label: formData.keys.elementAt(2),
+                  ),
+                  ReadOnlyData(
+                    color: Colors.black,
+                    label: formData.values.elementAt(2),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  ReadOnlyData(
+                    label: formData.keys.elementAt(3),
+                  ),
+                  ReadOnlyData(
+                    color: Colors.black,
+                    label: formData.values.elementAt(3),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
