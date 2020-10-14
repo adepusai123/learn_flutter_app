@@ -84,3 +84,6 @@ class PhotoAlbumScreen extends StatelessWidget {
     );
   }
 }
+
+// https://www.youtube.com/watch?v=cyhuPzAlgUU
+// https://www.youtube.com/watch?v=EKdAU3l_0gA
