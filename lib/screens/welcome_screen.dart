@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_app/screens/form_screens/form_screen.dart';
-import 'package:learn_flutter_app/screens/photo_album/photo_album_screen.dart';
-import 'package:learn_flutter_app/screens/quiz_screens/quiz_screen.dart';
+import './access_photos/access_photos.dart';
+import '../components/permisson_list.dart';
+import './form_screens/form_screen.dart';
+import './photo_album/photo_album_screen.dart';
+import './quiz_screens/quiz_screen.dart';
 import '../components/rounded_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -48,6 +50,32 @@ class WelcomeScreen extends StatelessWidget {
             );
           },
         ),
+        RoundButton(
+          btnLabel: 'Permission List',
+          press: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return PermissionListScreen();
+                },
+              ),
+            );
+          },
+        ),
+        RoundButton(
+          btnLabel: 'Access Photos',
+          press: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return AccessPhotos();
+                },
+              ),
+            );
+          },
+        )
       ],
     );
   }
