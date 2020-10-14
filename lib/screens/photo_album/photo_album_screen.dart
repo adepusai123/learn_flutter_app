@@ -69,12 +69,15 @@ class PhotoAlbumScreen extends StatelessWidget {
             crossAxisSpacing: 20,
             staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
             itemBuilder: (context, index) {
-              return ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: Image.asset("assets/images/$index.jpg"),
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  child: Image.asset("assets/images/$index.jpg"),
+                ),
               );
             },
-            itemCount: 9,
+            itemCount: 11,
           )
         ],
       ),
