@@ -33,17 +33,18 @@ class AccessPermission extends StatefulWidget {
 
 class _AccessPermissionState extends State<AccessPermission> {
   File _image;
+  final picker = ImagePicker();
 
   Future getImage(bool isCamera) async {
-    File image;
     checkPermission();
+    var image;
     if (isCamera) {
-      image = await ImagePicker.pickImage(source: ImageSource.camera);
+      image = await picker.getImage(source: ImageSource.camera);
     } else {
-      image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      image = await picker.getImage(source: ImageSource.gallery);
     }
     setState(() {
-      _image = image;
+      _image = File(image.path);
     });
   }
 
