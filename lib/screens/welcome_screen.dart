@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_app/screens/gallery/gallery.dart';
 import './access_photos/access_photos.dart';
 import '../components/permisson_list.dart';
 import './form_screens/form_screen.dart';
 import './photo_album/photo_album_screen.dart';
 import './quiz_screens/quiz_screen.dart';
 import '../components/rounded_button.dart';
+// import 'package:learn_flutter_app/screens/gallery/example.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -75,7 +77,33 @@ class WelcomeScreen extends StatelessWidget {
               ),
             );
           },
-        )
+        ),
+        RoundButton(
+          btnLabel: 'Photo Gallery',
+          press: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return GalleryScreen();
+                },
+              ),
+            );
+          },
+        ),
+        // RoundButton(
+        //   btnLabel: 'Photo Gallery Example',
+        //   press: () {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(
+        //         builder: (context) {
+        //           return MyApp();
+        //         },
+        //       ),
+        //     );
+        //   },
+        // )
       ],
     );
   }
