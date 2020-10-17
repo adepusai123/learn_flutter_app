@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -25,6 +24,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
     if (!await Permission.storage.status.isGranted) {
       await Permission.storage.request();
     }
+    if (!await Permission.photos.request().isGranted) {
+      await Permission.photos.request();
+    }
+
     List<Album> albums =
         await PhotoGallery.listAlbums(mediumType: MediumType.image);
     setState(() {

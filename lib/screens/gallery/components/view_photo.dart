@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_app/screens/gallery/components/view_video.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -24,13 +25,15 @@ class _ViewPhotoState extends State<ViewPhoto> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: FadeInImage(
-          fit: BoxFit.cover,
-          placeholder: MemoryImage(kTransparentImage),
-          image: PhotoProvider(
-            mediumId: media.id,
-          ),
-        ),
+        child: media.mediumType == MediumType.image
+            ? FadeInImage(
+                fit: BoxFit.cover,
+                placeholder: MemoryImage(kTransparentImage),
+                image: PhotoProvider(
+                  mediumId: media.id,
+                ),
+              )
+            : Video(mediumId: media.id),
       ),
     );
   }
