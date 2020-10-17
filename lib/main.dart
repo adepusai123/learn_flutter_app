@@ -17,13 +17,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('My Sample App'),
-        backgroundColor: Colors.blueGrey,
-      ),
-      // we can use Row also if we want
-      body: WelcomeScreen(),
-    ));
+          appBar: AppBar(
+            title: Text('My Sample App'),
+            backgroundColor: Colors.blueGrey,
+          ),
+          // we can use Row also if we want
+          body: WelcomeScreen(),
+        ));
   }
 }
